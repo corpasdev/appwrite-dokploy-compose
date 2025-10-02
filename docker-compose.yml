@@ -15,7 +15,7 @@ services:
       _APP_DB_PORT: 3306
       _APP_DB_SCHEMA: appwrite
       _APP_DB_USER: root
-      _APP_DB_PASS: Mir0rj8#i9
+      _APP_DB_PASS: StrongPass123!
       _APP_REDIS_HOST: redis
       _APP_REDIS_PORT: 6379
     volumes:
@@ -25,7 +25,7 @@ services:
   mariadb:
     image: mariadb:10.7
     environment:
-      MYSQL_ROOT_PASSWORD: Mir0rj8#i9
+      MYSQL_ROOT_PASSWORD: StrongPass123!
       MYSQL_DATABASE: appwrite
     volumes:
       - mariadb-data:/var/lib/mysql
