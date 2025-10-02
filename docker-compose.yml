@@ -27,24 +27,24 @@ services:
     restart: always
 
   appwrite-mariadb:
-  image: mariadb:10.7
-  environment:
-    MYSQL_ROOT_PASSWORD: StrongPass123!
-    MYSQL_DATABASE: appwrite
-    MYSQL_ROOT_HOST: '%'
-  volumes:
-    - mariadb-data:/var/lib/mysql
-  networks:
-    - appwrite-network
-  restart: always
-  healthcheck:
-    test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-    interval: 5s
-    retries: 10
-  command: >
-    --init-command="CREATE USER IF NOT EXISTS 'appwrite'@'%' IDENTIFIED BY 'StrongPass123!';
-                   GRANT ALL PRIVILEGES ON *.* TO 'appwrite'@'%' WITH GRANT OPTION;
-                   FLUSH PRIVILEGES;"
+    image: mariadb:10.7
+    environment:
+      MYSQL_ROOT_PASSWORD: StrongPass123!
+      MYSQL_DATABASE: appwrite
+      MYSQL_ROOT_HOST: '%'
+    volumes:
+      - mariadb-data:/var/lib/mysql
+    networks:
+      - appwrite-network
+    restart: always
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1"]
+      interval: 5s
+      retries: 10
+    command: >
+      --init-command="CREATE USER IF NOT EXISTS 'appwrite'@'%' IDENTIFIED BY 'StrongPass123!';
+                     GRANT ALL PRIVILEGES ON *.* TO 'appwrite'@'%' WITH GRANT OPTION;
+                     FLUSH PRIVILEGES;"
 
   appwrite-redis:
     image: redis:7
