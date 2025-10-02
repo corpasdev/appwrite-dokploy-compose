@@ -29,6 +29,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: StrongPass123!
       MYSQL_DATABASE: appwrite
+      MYSQL_ROOT_HOST: '%'
     volumes:
       - mariadb-data:/var/lib/mysql
     networks:
